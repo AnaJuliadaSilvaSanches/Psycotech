@@ -1,0 +1,376 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px; /* antes era padrão ~16px */
+  padding-top: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 2.5rem; /* título principal */
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1.2rem; /* aumentei o texto dos parágrafos */
+  line-height: 1.6; /* mais espaçamento entre linhas */
+}
+
+/* Inputs e botões */
+.form-section input,
+.form-section button {
+  border: 2px solid #78aaec; /* antes era 1px cinza */
+  font-size: 1.1rem; /* deixa o texto do input maior */
+}
+
+/* Botões */
+.btn,
+.form-section button {
+  font-size: 1.1rem;
+  border: 3px solid transparent; /* borda mais grossa */
+}
+
+.btn:hover,
+.form-section button:hover {
+  border-color: #00b99a; /* aparece no hover */
+}
+
+/* Imagens */
+.hero-image img,
+.feature img,
+.sobre-image img,
+.card img {
+  border: 4px solid #fff; /* borda branca mais grossa */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Cabeçalho */
+header {
+  background: #78aaec;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: fixed;   /* fixa o header na tela */
+  top: 0;            /* sempre no topo */
+  left: 0;
+  width: 100%;       /* ocupa toda a largura */
+  z-index: 1000;     /* garante que fique acima dos outros elementos */
+  }
+  
+header nav a {
+  color: #fff;               /* texto branco */
+  margin: 0 15px;            /* espaçamento entre links */
+  text-decoration: none;      /* remove sublinhado padrão */
+  font-weight: 600;
+  transition: all 0.3s;      /* animação suave */
+  }
+  
+header nav a:hover {
+  text-decoration: underline; /* sublinha ao passar o mouse */
+  }
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background: #d3ddeb;
+}
+.hero-content {
+  max-width: 55%;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+.btn {
+  padding: 15px 30px;
+  background: #00d9c0;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #00b99a;
+}
+.hero-image img {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* Estatísticas */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 40px 20px;
+}
+.stat-item h3 {
+  font-size: 2rem;
+  color: #78aaec;
+}
+.stat-item p {
+  margin-top: 5px;
+}
+
+
+/* Seção Sobre */
+.sobre-section {
+  display: flex; /* coloca texto e imagem lado a lado */
+  align-items: center; /* centraliza verticalmente */
+  justify-content: space-between; /* espaço entre texto e imagem */
+  padding: 50px 20px;
+  background: #fff;
+  gap: 40px; /* espaço entre texto e imagem */
+}
+
+.sobre-texto {
+  flex: 1; /* ocupa metade da largura */
+  text-align: left; /* garante alinhamento à esquerda */
+  flex-direction: row-reverse; 
+}
+
+.sobre-texto h2 {
+  color: #78aaec;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.sobre-texto p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.sobre-imagem {
+  display: flex;
+  flex: 1; /* ocupa metade da largura */
+  justify-content: left; /* joga a imagem para direita */
+}
+
+.sobre-imagem img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 15px;
+}
+
+
+
+/* Recursos */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+}
+.feature {
+  max-width: 30%;
+  text-align: center;
+}
+.feature img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;    /* centraliza o conteúdo */
+  padding: 0 5px;   /* espaço nas laterais */
+}
+
+/* Formulário */
+.form-section {
+  background: #fff;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+}
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #78aaec;
+}
+.form-section input, .form-section button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.form-section button {
+  background: #00d9c0;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-section button:hover {
+  background: #00b99a;
+}
+
+/* Rodapé */
+footer {
+  background: #333;
+  color: #eee;
+  text-align: center;
+  padding: 20px;
+}
+.psicologos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.card {
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 200px;        /* largura fixa */
+  height: 200px;       /* altura fixa */
+  object-fit: cover;   /* recorta a imagem para preencher sem distorcer */
+  border-radius: 10px;  /* se quiser deixar em formato circular */
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #ff005e;
+  margin-bottom: 10px;
+}
+.card p {
+  margin-bottom: 15px; /* cria espaço entre o texto e o botão */
+}
+
+.card .btn {
+  display: inline-block;   /* evita sobreposição */
+  margin-top: 5px;         /* dá respiro extra */
+}
+
+/* Seção Benefícios */
+.beneficios-section {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.beneficios-section h2 {
+  color: #78aaec;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Estatísticas */
+.beneficios-section .stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  background: #f0f4f8;
+  padding: 40px 20px;
+  border-radius: 15px;
+}
+
+.beneficios-section .stat-item {
+  flex: 1 1 200px;
+  text-align: center;
+  margin: 10px;
+}
+
+.beneficios-section .stat-item h3 {
+  font-size: 2rem;
+  color: #78aaec;
+}
+
+.beneficios-section .stat-item p {
+  margin-top: 5px;
+  font-size: 1.2rem;
+}
+
+/* Conteúdo adicional */
+.beneficios-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.beneficios-text {
+  flex: 1 1 400px;
+}
+
+.beneficios-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #78aaec;
+}
+
+.beneficios-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.beneficios-image img {
+  max-width: 100%;   /* garante que não ultrapasse o container */
+  width: 600px;      /* define um tamanho bom fixo */
+  height: auto;      /* mantém proporção da imagem */
+  display: block;    /* evita que fique sumida */
+  margin: 0 auto;    /* centraliza horizontalmente */
+  border-radius: 15px;
+  border: 4px solid #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

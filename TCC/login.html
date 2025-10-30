@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Psycotech</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos para a página de login */
+    .login-container {
+      max-width: 450px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .login-container h2 {
+      color: #78aaec;
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 2px solid #78aaec;
+      font-size: 1.1rem;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #00d9c0;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .3s;
+    }
+    .login-container button:hover {
+      background: #00b99a;
+    }
+    .login-container p {
+      margin-top: 15px;
+    }
+    .login-container a {
+      color: #78aaec;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Psycotech</h1>
+  </header>
+
+  <div class="login-container">
+    <h2>Entrar</h2>
+    <form action="#">
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p>Não tem conta? <a href="signup.html">Criar conta</a></p>
+  </div>
+  <script>
+    // Lê parâmetros da URL
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+  
+    // Preenche o campo email se existir
+    if (email) {
+      document.querySelector("input[type='email']").value = email;
+    }
+  </script>
+  <script>
+    // Lê parâmetros da URL (vindo da página inicial)
+    const params = new URLSearchParams(window.location.search);
+    const nome = params.get("nome");
+    const email = params.get("email");
+    const data = params.get("data");
+    const hora = params.get("hora");
+  
+    // Preenche o campo de email
+    if(email) {
+      document.querySelector("input[type='email']").value = email;
+      // Salva no localStorage para usar na página de cadastro
+      localStorage.setItem("signupNome", nome || "");
+      localStorage.setItem("signupEmail", email);
+      localStorage.setItem("signupData", data || "");
+      localStorage.setItem("signupHora", hora || "");
+    }
+  
+    // Altera o link do botão 'Criar conta' para passar os dados do localStorage
+    const criarContaLink = document.querySelector("p a[href='signup.html']");
+    criarContaLink.href = "signup.html"; // os dados já estarão no localStorage
+  </script>
+  
+  
+
+  <footer>
+    <p>© 2025 Psycotech</p>
+  </footer>
+
+</body>
+</html>
