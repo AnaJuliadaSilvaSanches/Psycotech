@@ -131,18 +131,82 @@
 </footer>
 
 <script>
-  document.getElementById('signup-form').addEventListener('submit', function(event) {
+  document.getElementById('signup-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const nome = document.querySelector('input[type="text"]').value;
+    const email = document.querySelector('input[type="email"]').value;
     const senha = document.getElementById('senha').value;
     const confirmarSenha = document.getElementById('confirmar-senha').value;
 
+    const psicologo = document.getElementById('psicologo').value;
+    const dataConsulta = document.querySelector('input[type="date"]').value;
+    const horarioConsulta = document.querySelector('input[type="time"]').value;
+
+    // 1️⃣ Verificação de senhas iguais
     if (senha !== confirmarSenha) {
-      event.preventDefault();
-      alert('As senhas não coincidem. Por favor, digite novamente.');
-      return false;
+      alert('As senhas não coincidem.');
+      return;
+    }
+
+    try {
+      // 2️⃣ Criando o usuário no Firebase Authentication
+      const userCredential = await auth.createUserWithEmailAndPassword(email, senha);
+      const user = userCredential.user;
+
+      // 3️⃣ Salvando informações no Firestore
+      await db.collection("users").doc(user.uid).set({
+        nome: nome,
+        email: email,
+        psicologo: psicologo !== "Selecione" ? psicologo : null,
+        dataConsulta: dataConsulta || null,
+        horarioConsulta: horarioConsulta || null,
+        criadoEm: new Date()
+      });
+
+      alert("Conta criada com sucesso!");
+      window.location.href = "login.html"; // redireciona
+
+    } catch (error) {
+      // 4️⃣ Tratamento de erros
+      console.error(error);
+
+      if (error.code === "auth/email-already-in-use") {
+        alert("Este e-mail já está cadastrado.");
+      } else if (error.code === "auth/invalid-email") {
+        alert("E-mail inválido.");
+      } else if (error.code === "auth/weak-password") {
+        alert("A senha deve ter no mínimo 6 caracteres.");
+      } else {
+        alert("Ocorreu um erro ao criar a conta.");
+      }
     }
   });
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+  // COLE AQUI SEU firebaseConfig (o mesmo que você viu no Firebase)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBHoTtDtOfqKPaClLIVJ2qjPeCVDepblaI",
+    authDomain: "psycotech-ad8b9.firebaseapp.com",
+    projectId: "psycotech-ad8b9",
+    storageBucket: "psycotech-ad8b9.firebasestorage.app",
+    messagingSenderId: "962546360438",
+    appId: "1:962546360438:web:4efb54ed9c14ed33c8ff57"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
 </script>
   
 
 </body>
 </html>
+
